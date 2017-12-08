@@ -5,12 +5,14 @@ import { SharedModule } from './components/shared/shared.module'
 
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 //import { HeaderComponent } from './components/core/shared/header/header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
  
   ],
   imports: [
