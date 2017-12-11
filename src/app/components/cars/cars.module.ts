@@ -2,24 +2,24 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { authenticationComponents } from './index';
+import { CarsComponents } from './index';
+import { CarService } from "../../core/services/car/car.service";
 
 @NgModule({
   declarations: [
-    ...authenticationComponents
+    ...CarsComponents
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    ToastModule.forRoot()
+    BrowserAnimationsModule
   ],
+  providers: [CarService],
   exports: [
-    ...authenticationComponents
+    ...CarsComponents
   ]
 })
-export class AuthModule {  }
+export class CarsModule {  }

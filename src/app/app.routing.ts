@@ -4,6 +4,7 @@ import { ContactsComponent } from './components/common/contacts/contacts.compone
 import { LoginFormComponent } from './components/authentication/login-form/login-form.component';
 import { RegisterFormComponent } from './components/authentication/register-form/register-form.component';
 import { LogoutComponent } from './components/authentication/logout/logout.component';
+import { CreateCarFormComponent } from './components/cars/create-car-form/create-car-form.component';
 
 
 
@@ -15,5 +16,6 @@ export const routes : Routes = [
     { path: 'register',  component: RegisterFormComponent },
     { path: 'logout',  component: LogoutComponent },
     { path: 'contacts',  component: ContactsComponent },
+    { path: 'create',  component: CreateCarFormComponent },
     
 ]

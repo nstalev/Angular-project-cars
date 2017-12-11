@@ -5,6 +5,7 @@ import { SharedModule } from './components/shared/shared.module'
 import { RouterModule } from "@angular/router";
 import { CommonPagesModule } from './components/common/common-pages.module';
 import { AuthModule } from "./components/authentication/auth.module";
+import { CarsModule } from './components/cars/cars.module'
 
 import { AppComponent } from './app.component';
 
@@ -22,7 +23,8 @@ import { AuthenticationService } from './core/services/authentication/auth.servi
     SharedModule,
     CommonPagesModule,
     RouterModule.forRoot(routes),
-    AuthModule
+    AuthModule,
+    CarsModule
   ],
   providers: [ AuthenticationService ],
   bootstrap: [AppComponent]
