@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CarService } from './../../../core/services/car/car.service'
 import { CarModel } from './../../../core/models/input-models/car-model'
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,41 +12,50 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   styleUrls: ['./create-car-form.component.css']
 })
 export class CreateCarFormComponent implements OnInit {
-  public model: CarModel;
+  //public model: CarModel;
   public categories: string[];
 
+  createCar: FormGroup
+
   constructor(
+    private fb: FormBuilder,
     private carServide: CarService,
     private router : Router,
     public toastr: ToastsManager
   ) { 
     this.categories = ['волан', 'салон', 'табло', 'друго']
-    this.model = new CarModel('','','','','','','','','' )
+    //this.model = new CarModel('','','','','','','','','' )
   }
 
 
-  get diagnostic(): string {
-    return JSON.stringify(this.model)
-  }
 
   ngOnInit() {
-  }
-
-
-  createCar(){
-    this.carServide.createCar(this.model)
-    .subscribe(data =>{
-      this.createdSuccesful()
+    this.createCar = this.fb.group({
+      title: ['',[Validators.required]],
+      description: ['',[]],
+      category: ['',[]],
+      url1: ['',[]],
+      url2: ['',[]],
+      url3: ['',[]],
+      url4: ['',[]],
+      url5: ['',[]],
+      url6: ['',[]],
     })
   }
 
 
-  createdSuccesful(){
-    this.router.navigate(['/home']);
-    this.showSuccess()
-  }
 
-    showSuccess() {
-    this.toastr.success('You have created car successful');
+    submit(a,b){
+      console.log(a.value)
+      console.log(b)
+      this.carServide.createCar(a.value)
+      .subscribe(data => {
+        this.createdSuccesful()
+      })
+    }
+
+    createdSuccesful(){
+      this.router.navigate(['/home']);
+      this.toastr.success('You have created car successful');
     }
 }
