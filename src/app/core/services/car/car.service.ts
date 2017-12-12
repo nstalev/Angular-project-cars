@@ -6,8 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import { CarModel } from './../../models/input-models/car-model';
 import { error } from 'util';
 
-const appKey = "kid_rJ9MnOcZG" // APP KEY HERE;
-const appSecret = "c7e09ee4c42f4b9990988676c387ae6a" // APP SECRET HERE;
+const appKey = "" // APP KEY HERE;
+const appSecret = "" // APP SECRET HERE;
 const createCarUrl = `https://baas.kinvey.com/appdata/${appKey}/cars`;
 
 @Injectable()
@@ -27,6 +27,25 @@ export class CarService {
         headers: this.createAuthHeaders('Kinvey')
       }
     )
+  }
+
+  getAllCars() : Observable<Object> {
+    return this.http.get(
+        createCarUrl, 
+      { 
+        headers: this.createAuthHeaders('Kinvey')
+      }
+    )
+  }
+
+
+  getCarById(id): Observable<Object> {
+    return this.http.get(
+      createCarUrl + '/' + id, 
+    { 
+      headers: this.createAuthHeaders('Kinvey')
+    }
+  )
   }
 
 

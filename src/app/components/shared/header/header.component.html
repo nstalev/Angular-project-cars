@@ -56,12 +56,14 @@
           </div>
           <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isLoggedIn()">
             <li><a  [routerLink]="['/']">Home</a></li>
+            <li><a  [routerLink]="['/cars']">Cars</a></li>
             <li><a [routerLink]="['/login']">Login</a></li>
             <li><a [routerLink]="['/register']">Register</a></li>
             <li><a [routerLink]="['/contacts']">Contacts</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn()">
             <li><a  [routerLink]="['/']">Home</a></li>
+            <li><a  [routerLink]="['/cars']">Cars</a></li>
             <li><a [routerLink]="['/create']">Create Car</a></li>
             <li><a [routerLink]="['/logout']">Logout</a></li>
             <li><a [routerLink]="['/contacts']">Contacts</a></li>

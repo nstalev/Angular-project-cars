@@ -7,8 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import { LoginModel } from './../../models/input-models/login-model';
 import { RegisterModel } from './../../models/input-models/register-model';
 
-const appKey = "kid_rJ9MnOcZG" // APP KEY HERE;
-const appSecret = "c7e09ee4c42f4b9990988676c387ae6a" // APP SECRET HERE;
+const appKey = "" // APP KEY HERE;
+const appSecret = "" // APP SECRET HERE;
 
 
 const registerUrl = `https://baas.kinvey.com/user/${appKey}`;
