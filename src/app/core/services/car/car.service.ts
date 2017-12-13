@@ -5,10 +5,9 @@ import { Observable } from 'rxjs/Observable';
 // Models
 import { CarModel } from './../../models/input-models/car-model';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { appKey } from './../authInfo/appKey'
+import { appSecret } from './../authInfo/appSecret'
 
-
-const appKey = "" // APP KEY HERE;
-const appSecret = "" // APP SECRET HERE;
 const createCarUrl = `https://baas.kinvey.com/appdata/${appKey}/cars`;
 
 @Injectable()
@@ -16,9 +15,12 @@ export class CarService {
   private currentAuthtoken : string;
 
   constructor(
+    
     private http : HttpClient,
     public toastr: ToastsManager
-  ) { }
+  ) { 
+    
+  }
 
 
   createCar(carModel : CarModel) : Observable<Object> {

@@ -7,9 +7,8 @@ import { Router } from "@angular/router";
 import { LoginModel } from './../../models/input-models/login-model';
 import { RegisterModel } from './../../models/input-models/register-model';
 
-const appKey = "" // APP KEY HERE;
-const appSecret = "" // APP SECRET HERE;
-
+import { appKey } from './../authInfo/appKey'
+import { appSecret } from './../authInfo/appSecret'
 
 const registerUrl = `https://baas.kinvey.com/user/${appKey}`;
 const loginUrl = `https://baas.kinvey.com/user/${appKey}/login`;
