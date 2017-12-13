@@ -17,7 +17,8 @@ export class LogoutComponent implements OnInit {
     this.authService.logout()
       .subscribe(data => {
         localStorage.clear();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
+        this.authService.redirectUrl = '',
         this.toastr.success('LogOut Successful!')
       })
   }

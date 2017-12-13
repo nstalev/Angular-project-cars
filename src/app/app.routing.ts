@@ -18,6 +18,6 @@ export const routes : Routes = [
     { path: 'register',  component: RegisterFormComponent },
     { path: 'logout',  component: LogoutComponent },
     { path: 'contacts', component: ContactsComponent },
-    { path: 'cars',loadChildren: 'app/components/cars/cars.module#CarsModule' },
+    { path: 'cars', loadChildren: 'app/components/cars/cars.module#CarsModule' },
     
 ]

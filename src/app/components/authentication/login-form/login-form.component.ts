@@ -26,7 +26,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.tryNavigate();
   }
 
   login () : void {
