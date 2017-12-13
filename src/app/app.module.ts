@@ -8,10 +8,10 @@ import { AuthModule } from "./components/authentication/auth.module";
 import { CarsModule } from './components/cars/cars.module'
 
 import { AppComponent } from './app.component';
-
 import { routes } from './app.routing';
 
 import { AuthenticationService } from './core/services/authentication/auth.service';
+import { AuthenticationGuard } from './core/guards/authentication/authentication.guard';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { AuthenticationService } from './core/services/authentication/auth.servi
     CommonPagesModule,
     RouterModule.forRoot(routes),
     AuthModule,
-    CarsModule
+    CarsModule,
   ],
-  providers: [ AuthenticationService ],
+  providers: [ AuthenticationService,AuthenticationGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

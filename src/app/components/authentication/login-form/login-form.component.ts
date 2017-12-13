@@ -26,6 +26,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.tryNavigate();
   }
 
   login () : void {
@@ -46,7 +47,7 @@ export class LoginFormComponent implements OnInit {
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
     this.loginFail = false;
-    this.router.navigate(['/home']);
+    this.authService.tryNavigate();
     this.showSuccess()
     
   }

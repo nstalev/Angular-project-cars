@@ -31,7 +31,7 @@ export class CarService {
 
   getAllCars() : Observable<Object> {
     return this.http.get(
-        createCarUrl, 
+        createCarUrl + '?query={}&sort={"_kmd.ect": -1}', 
       { 
         headers: this.createAuthHeaders('Kinvey')
       }

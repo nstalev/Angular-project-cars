@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
+import { Router } from "@angular/router";
 
 // Models
 import { LoginModel } from './../../models/input-models/login-model';
@@ -17,10 +17,12 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
 
 @Injectable()
 export class AuthenticationService {
+  public redirectUrl : string;
   private currentAuthtoken : string;
 
   constructor(
-    private http : HttpClient
+    private http : HttpClient,
+    private router: Router
   ) { }
 
   login(loginModel : LoginModel) {
@@ -59,6 +61,17 @@ export class AuthenticationService {
     return authtoken === this.currentAuthtoken;
   }
 
+
+  
+  tryNavigate() {
+    if (this.redirectUrl) {
+      this.router.navigate([this.redirectUrl]);
+    } else {
+      this.router.navigate([""]);
+    }
+  }
+
+
   get authtoken() {
     return this.currentAuthtoken;
   }
@@ -66,6 +79,8 @@ export class AuthenticationService {
   set authtoken(value : string) {
     this.currentAuthtoken = value;
   }
+
+
 
   private createAuthHeaders(type : string) : HttpHeaders {
     if (type === 'Basic') {

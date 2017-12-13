@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { CarService } from './../../../core/services/car/car.service'
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
@@ -9,11 +9,12 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   templateUrl: './car-details.component.html',
   styleUrls: ['./car-details.component.css']
 })
-export class CarDetailsComponent implements OnInit {
+export class CarDetailsComponent implements OnInit, OnDestroy {
 
   car;
   paramsId: string;
   listPictures = [];
+  sub$;
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -25,7 +26,7 @@ export class CarDetailsComponent implements OnInit {
   ngOnInit() {
     this.paramsId = this.route.snapshot.params["id"];
     
-    this.carService.getCarById(this.paramsId).subscribe(data =>{
+    this.sub$ = this.carService.getCarById(this.paramsId).subscribe(data =>{
     this.car = data;
     this.generateList(this.car)
     })
@@ -45,12 +46,15 @@ export class CarDetailsComponent implements OnInit {
     
     this.galleryImages = this.listPictures
   }
+  ngOnDestroy(){
+    this.sub$.unsubscribe();
+  }
 
 
   generateList(data){
     let arrayOfKeys = Object.keys(data)
     for(let key of arrayOfKeys){
-      if(key.startsWith('url') && data[key]!==null){
+      if(key.startsWith('url') && data[key].length>1){
         let obj = {
           small: data[key],
           medium: data[key],

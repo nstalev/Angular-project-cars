@@ -12,7 +12,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./create-car-form.component.css']
 })
 export class CreateCarFormComponent implements OnInit {
-  //public model: CarModel;
   public categories: string[];
 
   createCar: FormGroup
@@ -24,7 +23,6 @@ export class CreateCarFormComponent implements OnInit {
     public toastr: ToastsManager
   ) { 
     this.categories = ['волан', 'салон', 'табло', 'друго']
-    //this.model = new CarModel('','','','','','','','','' )
   }
 
 
