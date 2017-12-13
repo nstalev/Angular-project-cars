@@ -4,7 +4,7 @@ import { CarService } from './../../../core/services/car/car.service'
 import { CarModel } from './../../../core/models/input-models/car-model'
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-
+import { NGValidators } from 'ng-validators';
 
 @Component({
   selector: 'app-create-car-form',
@@ -29,11 +29,11 @@ export class CreateCarFormComponent implements OnInit {
 
   ngOnInit() {
     this.createCar = this.fb.group({
-      title: ['',[Validators.required]],
-      description: ['',[]],
-      category: ['',[]],
-      url1: ['',[]],
-      url2: ['',[]],
+      title: ['',[Validators.required, Validators.minLength(3)]],
+      description: ['',[Validators.required, Validators.minLength(3)]],
+      category: ['',[Validators.required]],
+      url1: ['',[Validators.required, Validators.minLength(5)]],
+      url2: ['',[Validators.required,  Validators.minLength(5) ]],
       url3: ['',[]],
       url4: ['',[]],
       url5: ['',[]],
@@ -44,12 +44,16 @@ export class CreateCarFormComponent implements OnInit {
 
 
     submit(a,b){
-      console.log(a.value)
-      console.log(b)
-      this.carServide.createCar(a.value)
-      .subscribe(data => {
-        this.createdSuccesful()
-      })
+
+      let inputData = a.value;
+
+      if(this.carServide.validateInput(inputData)){
+        this.carServide.createCar(inputData)
+        .subscribe(data => {
+          this.createdSuccesful()
+        })
+      }
+     
     }
 
     createdSuccesful(){

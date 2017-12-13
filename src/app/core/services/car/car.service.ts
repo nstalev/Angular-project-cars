@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 
 // Models
 import { CarModel } from './../../models/input-models/car-model';
-import { error } from 'util';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 
 const appKey = "" // APP KEY HERE;
 const appSecret = "" // APP SECRET HERE;
@@ -15,7 +16,8 @@ export class CarService {
   private currentAuthtoken : string;
 
   constructor(
-    private http : HttpClient
+    private http : HttpClient,
+    public toastr: ToastsManager
   ) { }
 
 
@@ -61,6 +63,30 @@ export class CarService {
         'Content-Type': 'application/json'
       })
     }
+  }
+
+
+  validateInput(data){
+    if(!data['url1'].startsWith('http') || !data['url2'].startsWith('http') ){
+      this.toastr.error('Invalid input!!! All Links should start with "http"');
+      return false
+  }if(Number(data['description'].length) < 7){
+    this.toastr.error('Invalid input!!! Description length should be more than 7 symbols');
+    return false
+  }if(Number(data['title'].length) < 3){
+    this.toastr.error('Invalid input!!! Title length should be more than 3 symbols');
+    return false
+  }
+  if((data['url3'].length > 0 && !data['url3'].startsWith('http'))
+      || (data['url4'].length > 0 && !data['url4'].startsWith('http'))
+      || (data['url5'].length > 0 && !data['url5'].startsWith('http'))
+      || (data['url6'].length > 0 && !data['url6'].startsWith('http'))
+    ){
+    this.toastr.error('All Links should start with "http"');
+    return false
+  }
+
+    return true;
   }
 
   
