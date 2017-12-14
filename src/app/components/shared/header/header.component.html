@@ -1,72 +1,32 @@
-<!--
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
-      <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      <div class="collapse navbar-collapse ">
-          <a class="navbar-brand" href="#" >WebSiteName</a>
-      <ul class="nav nav-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#" >Details</a></li>
-          <li><a href="#">Cars Info</a></li>
-      </ul>
-    </div>
-  </div>
-    <div class="collapse sidebar-collapse navHeaderCollapse">
-        <ul class="collapse sidebar-nav-fixed">
-          <li><a href="#" >Details</a></li>
-          <li><a href="#">Cars Info</a></li>
-        </ul>
-    </div>
-</nav>
--->
-
-<!--
-<nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-        <div class="navbar-header">
-          
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-          </ul>
-        </div>
-    
-    <div class="collapse sidebar-collapse navHeaderCollapse">
-      <ul class="collapse sidebar-nav-fixed">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
--->
 
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
           <div class="navbar-header">
               <a class="navbar-brand"  [routerLink]="['/home']" >WebSiteName</a>
           </div>
-          <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isLoggedIn()">
+          <div *ngIf="!authService.isLoggedIn()">
+          <ul class="nav navbar-nav navbar-right" >
             <li><a  [routerLink]="['/']">Home</a></li>
             <li><a  [routerLink]="['/cars']">Cars</a></li>
             <li><a [routerLink]="['/login']">Login</a></li>
             <li><a [routerLink]="['/register']">Register</a></li>
             <li><a [routerLink]="['/contacts']">Contacts</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn()">
+        </div>
+        <div *ngIf="authService.isLoggedIn()">
+            <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isAdmin()" >
+                <li><a  [routerLink]="['/']">Home</a></li>
+                <li><a  [routerLink]="['/cars']">Cars</a></li>
+                <li><a [routerLink]="['/logout']">Logout</a></li>
+                <li><a [routerLink]="['/contacts']">Contacts</a></li>
+              </ul>
+          <ul class="nav navbar-nav navbar-right" *ngIf="authService.isAdmin()" >
             <li><a  [routerLink]="['/']">Home</a></li>
             <li><a  [routerLink]="['/cars']">Cars</a></li>
             <li><a [routerLink]="['/create']">Create Car</a></li>
             <li><a [routerLink]="['/logout']">Logout</a></li>
             <li><a [routerLink]="['/contacts']">Contacts</a></li>
           </ul>
+        </div>
     </div>
   </nav>

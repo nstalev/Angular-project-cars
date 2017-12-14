@@ -12,7 +12,10 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routing';
 
 import { AuthenticationService } from './core/services/authentication/auth.service';
+
+//Guards
 import { AuthenticationGuard } from './core/guards/authentication/authentication.guard';
+import { AdminGuard } from './core/guards/admin-guard/admin-guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { AuthenticationGuard } from './core/guards/authentication/authentication
     AuthModule,
     CarsModule,
   ],
-  providers: [ AuthenticationService,AuthenticationGuard ],
+  providers: [ AuthenticationService,AuthenticationGuard, AdminGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

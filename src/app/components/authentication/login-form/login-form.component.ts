@@ -45,6 +45,7 @@ export class LoginFormComponent implements OnInit {
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
+    this.authService.role = data.role;
     this.loginFail = false;
     this.authService.tryNavigate();
     this.showSuccess()

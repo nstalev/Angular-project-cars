@@ -9,8 +9,10 @@
                   <h3>{{currentCar.description}}</h3>
           </div>
         </div>
-        <button (click)="navigateToEdit()" mat-raised-button mat-accent color="accent">EDIT</button>
-        <button mat-raised-button mat-warn color="warn">DELETE</button>
+        <div *ngIf="authService.isAdmin()">
+          <button (click)="navigateToEdit()" mat-raised-button mat-accent color="accent">EDIT</button>
+          <button mat-raised-button mat-warn color="warn">DELETE</button>
+      </div>
     </div>
 
     <div class="col-xl-6 col-md-6 col-sm-12 col-xs-12">

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AuthenticationService } from './../../../core/services/authentication/auth.service'
 
 @Component({
@@ -10,6 +9,7 @@ import { AuthenticationService } from './../../../core/services/authentication/a
 export class HeaderComponent implements OnInit {
 
   show:boolean = false;
+  isAdmin: boolean = false;
   
    constructor(private authService: AuthenticationService) { }
  
@@ -21,4 +21,5 @@ export class HeaderComponent implements OnInit {
      this.show = !this.show
    }
 
+  
 }

@@ -8,7 +8,7 @@ import { CommonPagesComponents } from './index';
 
 @NgModule({
   declarations: [
-    ...CommonPagesComponents
+    ...CommonPagesComponents,
   ],
   imports: [
     CommonModule,

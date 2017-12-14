@@ -22,7 +22,8 @@ export class RegisterFormComponent {
     private router : Router,
     public toastr: ToastsManager
   ) { 
-    this.model = new RegisterModel("", "", "", "");
+    this.model = new RegisterModel("", "", "", "", "");
+    this.model['role']= 'user'
   }
 
   register() : void {

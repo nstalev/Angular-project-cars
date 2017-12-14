@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { CarService } from './../../../core/services/car/car.service'
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import {MatButtonModule} from '@angular/material/button';
+
+import { CarService } from './../../../core/services/car/car.service'
+import { AuthenticationService } from './../../../core/services/authentication/auth.service'
 
 @Component({
   selector: 'app-car-details',
@@ -21,7 +23,8 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private carService: CarService,
               private routeSnap: ActivatedRoute,
-              private router : Router
+              private router : Router,
+              private authService : AuthenticationService
   ) { }
 
   ngOnInit() {

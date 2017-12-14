@@ -7,6 +7,7 @@ import { LogoutComponent } from './components/authentication/logout/logout.compo
 //import { CreateCarFormComponent } from './components/cars/create-car-form/create-car-form.component';
 
 import {AuthenticationGuard} from './core/guards/authentication/authentication.guard'
+import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
 
 
 
@@ -19,5 +20,6 @@ export const routes : Routes = [
     { path: 'logout',  component: LogoutComponent },
     { path: 'contacts', component: ContactsComponent },
     { path: 'cars', loadChildren: 'app/components/cars/cars.module#CarsModule' },
+    { path: '**', component: PageNotFoundComponent }
     
 ]

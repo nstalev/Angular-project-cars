@@ -17,6 +17,7 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
 @Injectable()
 export class AuthenticationService {
   public redirectUrl : string;
+  public role: string = 'user';
   private currentAuthtoken : string;
 
   constructor(
@@ -60,6 +61,13 @@ export class AuthenticationService {
     return authtoken === this.currentAuthtoken;
   }
 
+  isAdmin(){
+    if(this.role ==='admin'){
+      return true
+    }else{
+     return false
+    }
+  }
 
   
   tryNavigate() {
