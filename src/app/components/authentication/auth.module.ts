@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { authenticationComponents } from './index';
 
@@ -16,7 +17,8 @@ import { authenticationComponents } from './index';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   exports: [
     ...authenticationComponents

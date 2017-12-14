@@ -3,6 +3,7 @@ import { LoginModel } from './../../../core/models/input-models/login-model'
 import { AuthenticationService } from './../../../core/services/authentication/auth.service'
 import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private authService : AuthenticationService,
     private router : Router,
-    public toastr: ToastsManager
+    public toastr: ToastsManager,
+    private spinnerService: Ng4LoadingSpinnerService
     
   ) {
     this.model = new LoginModel("", "");
@@ -29,13 +31,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   login () : void {
+    this.spinnerService.show();
     this.authService.login(this.model)
       .subscribe(
         data => {
           this.successfulLogin(data);
+          this.spinnerService.hide();
         },
         err => {
           this.toastr.error('Failed Login!');
+          this.spinnerService.hide();
         }
       )
   }
