@@ -11,7 +11,7 @@
         </div>
         <div *ngIf="authService.isAdmin()">
           <button (click)="navigateToEdit()" mat-raised-button mat-accent color="accent">EDIT</button>
-          <button mat-raised-button mat-warn color="warn">DELETE</button>
+          <button  (click)="deleteCar()" mat-raised-button mat-warn color="warn">DELETE</button>
       </div>
     </div>
 

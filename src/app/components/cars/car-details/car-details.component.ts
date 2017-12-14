@@ -72,5 +72,9 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
   navigateToEdit(){
     this.router.navigate([`./edit/${this.currentCar._id}`])
   }
+  deleteCar(){
+   
+    this.router.navigate([`./delete/${this.currentCar._id}`])
+  }
 
 }

@@ -43,6 +43,15 @@ export class CarService {
     )
   }
 
+  deleteCar(carId: string) : Observable<Object> {
+    return this.http.delete(
+        createCarUrl + '/' + carId,  
+      { 
+        headers: this.createAuthHeaders('Kinvey')
+      }
+    )
+  }
+
   getAllCars() : Observable<Object> {
     return this.http.get(
         createCarUrl + '?query={}&sort={"_kmd.ect": -1}', 

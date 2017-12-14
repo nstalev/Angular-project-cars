@@ -1,1 +1,1 @@
-export const  appSecret= ""
+export const  appSecret= "";
