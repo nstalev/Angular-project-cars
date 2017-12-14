@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CarService } from './../../../core/services/car/car.service'
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-car-details',
@@ -20,11 +20,12 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
   galleryImages: NgxGalleryImage[];
 
   constructor(private carService: CarService,
-              private route: ActivatedRoute
+              private routeSnap: ActivatedRoute,
+              private router : Router
   ) { }
 
   ngOnInit() {
-    this.paramsId = this.route.snapshot.params["id"];
+    this.paramsId = this.routeSnap.snapshot.params["id"];
     
     this.sub$ = this.carService.getCarById(this.paramsId).subscribe(selectedCar =>{
     this.currentCar = selectedCar;
@@ -65,5 +66,8 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
     }
   }
 
+  navigateToEdit(){
+    this.router.navigate([`./edit/${this.currentCar._id}`])
+  }
 
 }

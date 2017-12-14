@@ -33,6 +33,16 @@ export class CarService {
     )
   }
 
+  editCar(carModel : CarModel, carId: string) : Observable<Object> {
+    return this.http.put(
+        createCarUrl + '/' + carId,  
+      JSON.stringify(carModel),
+      { 
+        headers: this.createAuthHeaders('Kinvey')
+      }
+    )
+  }
+
   getAllCars() : Observable<Object> {
     return this.http.get(
         createCarUrl + '?query={}&sort={"_kmd.ect": -1}', 

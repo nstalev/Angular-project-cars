@@ -17,8 +17,7 @@ import { carPaths } from "./car.routing";
 
 @NgModule({
   declarations: [
-    ...CarsComponents,
-    
+    ...CarsComponents
   ],
   imports: [
     BrowserModule,
