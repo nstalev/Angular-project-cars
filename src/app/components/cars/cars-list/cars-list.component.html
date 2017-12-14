@@ -1,20 +1,31 @@
 
 <div class="container">
   <div class="row">
-
       
     <div class="col-xl-3 col-md-4 col-sm-6 col-xs-12 car" *ngFor='let car of data | paginate: { itemsPerPage: 9, currentPage: p }'>
 
-      <div class="title">
-        <h4>{{car.title}}</h4>
-      <a [routerLink]="['/details/', car._id]">
-      <img src="{{car.url1}}" alt="car" width="260" height="190">
-        </a>
-      </div>
+
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{car.title}}</mat-card-title>
+          <mat-card-subtitle>{{car.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{car.url1}}" alt="car">
+    
+        <mat-card-actions>
+          <button mat-button [routerLink]="['/details/', car._id]">DETAILS</button>
+        </mat-card-actions>
+      </mat-card>
+      
+
+
     </div>
-    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+    
   </div>
+    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
 
 
 
 </div>
+

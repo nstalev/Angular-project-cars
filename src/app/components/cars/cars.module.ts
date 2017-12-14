@@ -10,6 +10,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { MyOwnCustomMaterialModule } from "../../core/AngularMaterial/angular-material-module";
 import { BrowserModule } from "@angular/platform-browser";
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatCardModule} from '@angular/material/card';
+
 
 import { CarsComponents } from './index';
 import { CarService } from "../../core/services/car/car.service";
@@ -29,7 +31,8 @@ import { carPaths } from "./car.routing";
     NgxGalleryModule,
     BrowserAnimationsModule,
     MyOwnCustomMaterialModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatCardModule
   ],
   providers: [CarService],
   exports: [

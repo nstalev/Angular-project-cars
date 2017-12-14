@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CarService } from './../../../core/services/car/car.service'
 import { CarModel} from './../../../core/models/view-models/car-view-model'
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card';
 
 
 @Component({

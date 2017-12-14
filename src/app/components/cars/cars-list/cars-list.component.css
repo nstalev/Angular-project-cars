@@ -1,8 +1,12 @@
-.title{
-    color: white
-}
+.example-card {
+    width: 400px;
+  }
+  
+  .mat-card-image{
+    height: 250px;
+    
+  }
 
-.car{
-    margin-bottom: 25px;
-}
-
+  .example-card{
+      margin-top: 20px;
+  }
