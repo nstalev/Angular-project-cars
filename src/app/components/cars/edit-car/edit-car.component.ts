@@ -3,6 +3,7 @@ import { CarService } from './../../../core/services/car/car.service'
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -35,7 +36,6 @@ export class EditCarComponent implements OnInit {
    // this.showFb(this.selectedCar1)
     this.model = selectedCar
       })
-
   }
 
  
@@ -48,5 +48,10 @@ export class EditCarComponent implements OnInit {
       })
     }
   }
+
+  cancelEdit(){
+    this.router.navigate(['/details/', this.paramsId])
+  }
+
 
 }

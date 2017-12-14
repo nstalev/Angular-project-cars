@@ -1,8 +1,7 @@
-<h1 style="color: white">EDIT</h1>
 
 <div class="container">
-  <h1>Edit Form</h1>
-  <form (ngSubmit)="editCar()" *ngIf="model">
+  <h1 style="color: white">Edit Form</h1>
+  <form (ngSubmit)="editCar()" *ngIf="model" #validCar="ngForm">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" 
@@ -18,86 +17,68 @@
     [(ngModel)]="model.description"
       name="description"
     >
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>    
+  </div>
+    <div class="form-group">
+          <label for="category">Категория</label>
+            <select class="form-control" 
+              id="category"
+              required
+              name="category"
+              [(ngModel)]="model.category"
+              >
+                <option *ngFor="let category of categories"   	[value]="category">{{category}}</option>
+            </select>
+        </div>
+     
+      <div class="form-group">
+        <label for="url1">Link 1</label>
+        <input type="text" class="form-control" id="url1" 
+        required
+        [(ngModel)]="model.url1"
+        name="url1"
+        >
+      </div>
+      <div class="form-group">
+        <label for="url2">Link 2</label>
+        <input type="text" class="form-control" id="url2" 
+        required
+        [(ngModel)]="model.url2"
+        name="url2"
+        >
+      </div>
+      <div class="form-group">
+        <label for="url3">Link 3</label>
+        <input type="text" class="form-control" id="url3" 
+        required
+        [(ngModel)]="model.url3"
+        name="url3"
+        >
+      </div>
+      <div class="form-group">
+        <label for="url4">Link 4</label>
+        <input type="text" class="form-control" id="url4" 
+        required
+        [(ngModel)]="model.url4"
+        name="url4"
+        >
+      </div>
+      <div class="form-group">
+        <label for="url5">Link 5</label>
+        <input type="text" class="form-control" id="url5" 
+        required
+        [(ngModel)]="model.url5"
+        name="url5"
+        >
+      </div>
+      <div class="form-group">
+        <label for="url6">Link 6</label>
+        <input type="text" class="form-control" id="url6" 
+        required
+        [(ngModel)]="model.url6"
+        name="url6"
+        >
+      </div>
+      <button (click)="cancelEdit()" mat-raised-button mat-primary color="primary">Cancel</button>
+    <button  [disabled]="validCar.pristine" type="submit" mat-raised-button mat-accent color="accent">Edit</button>    
   </form>
 </div>
-
-<!--
-<div class="container">
-  <h1>Edit Form</h1>
-  <form (ngSubmit)="submit(editCar)" [formGroup]="editCar" #validCar="ngForm">
-    <div class="form-group">
-      <label for="username">Title</label>
-      <input type="text" class="form-control" id="title" 
-      required
-      formControlName = 'title'
-      >
-
- 
-    </div>
-    <div class="form-group">
-      <label for="username">Description</label>
-      <input type="text" class="form-control" id="description" 
-      required
-      formControlName="description"
-      >
-
-     
-    </div>
-      <div class="form-group">
-        <label for="category">Категория</label>
-          <select class="form-control" 
-            id="category"
-            required
-            formControlName="category"
-            >
-              <option *ngFor="let category of categories"     		  	[value]="category">{{category}}</option>
-          </select>
-      </div>
-   
-    <div class="form-group">
-      <label for="url1">Link 1</label>
-      <input type="text" class="form-control" id="url1" 
-      required
-      formControlName="url1"
-      >
-
-     
-    </div>
-    <div class="form-group">
-      <label for="url2">Link 2</label>
-      <input type="text" class="form-control" id="url2" 
-      required
-      formControlName="url2"
-      >
-     
-    </div>
-    <div class="form-group">
-      <label for="url3">Link 3</label>
-      <input type="text" class="form-control" id="url3" 
-      formControlName="url3"
-      >
-    </div>
-    <div class="form-group">
-      <label for="url4">Link 4</label>
-      <input type="text" class="form-control" id="url4" 
-      formControlName="url4"
-      >
-    </div>
-    <div class="form-group">
-      <label for="url5">Link 5</label>
-      <input type="text" class="form-control" id="url5" 
-      formControlName="url5"
-      >
-    </div>
-    <div class="form-group">
-      <label for="url6">Link 6</label>
-      <input type="text" class="form-control" id="url6" 
-      formControlName="url6"
-      >
-    </div>
-    <button [disabled]="!validCar.form.valid" type="submit" class="btn btn-success">Create</button> 
-  </form>
-  </div>
--->

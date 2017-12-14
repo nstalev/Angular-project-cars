@@ -1,2 +1,2 @@
-export const  appKey = "kid_rJ9MnOcZG"
+export const  appKey = ""
 
