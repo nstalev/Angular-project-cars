@@ -11,7 +11,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 })
 export class CarDetailsComponent implements OnInit, OnDestroy {
 
-  car;
+  currentCar;
   paramsId: string;
   listPictures = [];
   sub$;
@@ -26,9 +26,9 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.paramsId = this.route.snapshot.params["id"];
     
-    this.sub$ = this.carService.getCarById(this.paramsId).subscribe(data =>{
-    this.car = data;
-    this.generateList(this.car)
+    this.sub$ = this.carService.getCarById(this.paramsId).subscribe(selectedCar =>{
+    this.currentCar = selectedCar;
+    this.generateList(this.currentCar)
     })
 
 

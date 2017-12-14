@@ -35,7 +35,7 @@ export class LoginFormComponent implements OnInit {
           this.successfulLogin(data);
         },
         err => {
-          this.loginFail = true;
+          this.toastr.error('Failed Login!');
         }
       )
   }
@@ -51,7 +51,7 @@ export class LoginFormComponent implements OnInit {
     
   }
   showSuccess() {
-    this.toastr.success('You are awesome!', 'Success!');
+    this.toastr.success('You have successfully logged in');
   }
 
 }

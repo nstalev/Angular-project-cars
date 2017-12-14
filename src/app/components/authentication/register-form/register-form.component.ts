@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from './../../../core/models/input-models/register-model'
 import { AuthenticationService } from './../../../core/services/authentication/auth.service'
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 
 @Component({
   selector: 'app-register-form',
@@ -17,7 +19,8 @@ export class RegisterFormComponent {
 
   constructor(
     private authService : AuthenticationService,
-    private router : Router
+    private router : Router,
+    public toastr: ToastsManager
   ) { 
     this.model = new RegisterModel("", "", "", "");
   }
@@ -27,10 +30,9 @@ export class RegisterFormComponent {
       .subscribe(
         data => {
           this.successfulRegister(data);
-        //  this.router.navigate(['/login']);
         },
         err => {
-          this.registerFail = true;
+          this.toastr.error('Register error');
         }
       )
   }
@@ -39,6 +41,8 @@ export class RegisterFormComponent {
   successfulRegister(data) : void {
     this.registerSuccess = true;
     this.registeredUser = data['username'];
+    this.router.navigate(["./login"]);
+    this.toastr.success('You have successfully registered');
   }
 
 }

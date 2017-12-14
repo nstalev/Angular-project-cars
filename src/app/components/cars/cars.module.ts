@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router"
 import { NgxGalleryModule } from 'ngx-gallery';
 import { MyOwnCustomMaterialModule } from "../../core/AngularMaterial/angular-material-module";
 import { BrowserModule } from "@angular/platform-browser";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { CarsComponents } from './index';
 import { CarService } from "../../core/services/car/car.service";
@@ -28,7 +29,8 @@ import { carPaths } from "./car.routing";
     ReactiveFormsModule,
     NgxGalleryModule,
     BrowserAnimationsModule,
-    MyOwnCustomMaterialModule
+    MyOwnCustomMaterialModule,
+    NgxPaginationModule
   ],
   providers: [CarService],
   exports: [
