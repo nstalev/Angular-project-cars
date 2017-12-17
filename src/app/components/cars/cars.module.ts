@@ -12,6 +12,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatCardModule} from '@angular/material/card';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 import { CarsComponents } from './index';
@@ -34,7 +36,8 @@ import { carPaths } from "./car.routing";
     MyOwnCustomMaterialModule,
     NgxPaginationModule,
     MatCardModule,
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    MatSelectModule
   ],
   providers: [CarService],
   exports: [

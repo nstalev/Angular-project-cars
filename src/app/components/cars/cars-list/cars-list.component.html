@@ -1,6 +1,17 @@
 <ng4-loading-spinner></ng4-loading-spinner>
+<div class="category">
+<mat-form-field>
+    <p style="color:white">select category</p>
+    <mat-select placeholder="select category" [(ngModel)]="selectedCategory"  name="category">
+      <mat-option (click)="filterDataByCategory()" *ngFor="let category of categories" [value]="category.value">
+        {{ category.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <div class="container">
   <div class="row">
+      
       
     <div class="col-xl-3 col-md-4 col-sm-6 col-xs-12 car" *ngFor='let car of data | paginate: { itemsPerPage: 9, currentPage: p }'>
 

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import {MatButtonModule} from '@angular/material/button';
+import { CarModel } from './../../../core/models/view-models/car-view-model'
 
 import { CarService } from './../../../core/services/car/car.service'
 import { AuthenticationService } from './../../../core/services/authentication/auth.service'

@@ -52,7 +52,7 @@ export class CarService {
     )
   }
 
-  getAllCars() : Observable<Object> {
+  getAllCars<T>() : Observable<Object> {
     return this.http.get(
         createCarUrl + '?query={}&sort={"_kmd.ect": -1}', 
       { 
@@ -62,7 +62,7 @@ export class CarService {
   }
 
 
-  getCarById(id): Observable<Object> {
+  getCarById<T>(id): Observable<Object> {
     return this.http.get(
       createCarUrl + '/' + id, 
     { 
