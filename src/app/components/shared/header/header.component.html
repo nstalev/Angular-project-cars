@@ -1,32 +1,139 @@
 
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-          <div class="navbar-header">
-              <a class="navbar-brand"  [routerLink]="['/home']" >WebSiteName</a>
-          </div>
-          <div *ngIf="!authService.isLoggedIn()">
-          <ul class="nav navbar-nav navbar-right" >
-            <li><a  [routerLink]="['/']">Home</a></li>
-            <li><a  [routerLink]="['/cars']">Cars</a></li>
-            <li><a [routerLink]="['/login']">Login</a></li>
-            <li><a [routerLink]="['/register']">Register</a></li>
-            <li><a [routerLink]="['/contacts']">Contacts</a></li>
+
+  <nav class="docs-navbar-header navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" 
+              [routerLink]="['/']">
+              <span class="mat-button-wrapper"><b>WebSiteName</b></span>
+            </a>
+          </li>
+        </ul>
+        <div *ngIf="!authService.isLoggedIn()">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" 
+              [routerLink]="['/']">
+              <span class="mat-button-wrapper"><b>Home</b></span>
+              <div class="mat-button-focus-overlay"></div>
+            </a>
+          </li>
+          <li>
+            <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+              [routerLink]="['/cars']">
+              <span class="mat-button-wrapper"><b>Cars</b></span>
+              <div class="mat-button-focus-overlay"></div>
+            </a>
+          </li>
+          <li>
+            <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+              [routerLink]="['/login']">
+              <span class="mat-button-wrapper"><b>Login</b></span>
+              <div class="mat-button-focus-overlay"></div>
+            </a>
+          </li>
+          <li>
+              <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                [routerLink]="['/register']">
+                <span class="mat-button-wrapper"><b>Register</b></span>
+                <div class="mat-button-focus-overlay"></div>
+              </a>
+            </li>
+          <li>
+            <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+              [routerLink]="['/contacts']">
+              <span class="mat-button-wrapper"><b>Constacts</b></span>
+              <div class="mat-button-focus-overlay"></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="authService.isLoggedIn()">
+          <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isAdmin()" >
+              <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" 
+                    [routerLink]="['/']">
+                    <span class="mat-button-wrapper"><b>Home</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+                <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                    [routerLink]="['/cars']">
+                    <span class="mat-button-wrapper"><b>Cars</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+                <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                    [routerLink]="['/logout']">
+                    <span class="mat-button-wrapper"><b>Logout</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+                <li>
+                    <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                      [routerLink]="['/contacts']">
+                      <span class="mat-button-wrapper"><b>Contacts</b></span>
+                      <div class="mat-button-focus-overlay"></div>
+                    </a>
+                  </li>
+                <li>
           </ul>
-        </div>
-        <div *ngIf="authService.isLoggedIn()">
-            <ul class="nav navbar-nav navbar-right" *ngIf="!authService.isAdmin()" >
-                <li><a  [routerLink]="['/']">Home</a></li>
-                <li><a  [routerLink]="['/cars']">Cars</a></li>
-                <li><a [routerLink]="['/logout']">Logout</a></li>
-                <li><a [routerLink]="['/contacts']">Contacts</a></li>
-              </ul>
           <ul class="nav navbar-nav navbar-right" *ngIf="authService.isAdmin()" >
-            <li><a  [routerLink]="['/']">Home</a></li>
-            <li><a  [routerLink]="['/cars']">Cars</a></li>
-            <li><a [routerLink]="['/create']">Create Car</a></li>
-            <li><a [routerLink]="['/logout']">Logout</a></li>
-            <li><a [routerLink]="['/contacts']">Contacts</a></li>
+                <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" 
+                    [routerLink]="['/']">
+                    <span class="mat-button-wrapper"><b>Home</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+                <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                    [routerLink]="['/cars']">
+                    <span class="mat-button-wrapper"><b>Cars</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+                <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                    [routerLink]="['/create']">
+                    <span class="mat-button-wrapper"><b>Create Car</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+                <li>
+                    <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                      [routerLink]="['/logout']">
+                      <span class="mat-button-wrapper"><b>Logout</b></span>
+                      <div class="mat-button-focus-overlay"></div>
+                    </a>
+                  </li>
+                <li>
+                  <a class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button=""  
+                    [routerLink]="['/contacts']">
+                    <span class="mat-button-wrapper"><b>Constacts</b></span>
+                    <div class="mat-button-focus-overlay"></div>
+                  </a>
+                </li>
+  
           </ul>
-        </div>
+  
     </div>
-  </nav>
+
+
+
+
+
+      </div>
+    </nav>
+
+
+
+
+
+
+
+    
