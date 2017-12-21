@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 import { authenticationComponents } from './index';
 
@@ -18,7 +21,10 @@ import { authenticationComponents } from './index';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastModule.forRoot(),
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
   ],
   exports: [
     ...authenticationComponents

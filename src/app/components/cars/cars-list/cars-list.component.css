@@ -1,14 +1,11 @@
-.example-card {
-    width: 400px;
-  }
-  
+.example-card{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 400px;
+}
   .mat-card-image{
     height: 250px;
     
-  }
-
-  .example-card{
-      margin-top: 20px;
   }
 
   .category{

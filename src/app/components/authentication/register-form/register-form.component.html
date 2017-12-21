@@ -1,62 +1,59 @@
 <ng4-loading-spinner></ng4-loading-spinner>
 <div class="container">
+  <mat-card class="register-card">
   <h1>Register Form</h1>
-  <form (ngSubmit)="register()" #registerForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" 
-      required
-      [(ngModel)]="model.username"
-      name="username"
-      #username="ngModel">
-      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-        Username is required!
-      </div>
-    </div>
+  <form (ngSubmit)="register()" class="form-class" #registerForm="ngForm">
+      <mat-form-field class="form-group">
+          <input matInput placeholder="Username"
+          type="text"  id="username" 
+          required
+          [(ngModel)]="model.username"
+          name="username"
+           #username="ngModel">
+          <mat-error [hidden]="username.valid || username.pristine">
+            Username is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
 
+    <mat-form-field class="form-group">
+        <input matInput placeholder="Password"
+        type="password"  id="password" 
+        required
+        [(ngModel)]="model.password"
+        name="password"
+         #password="ngModel">
+        <mat-error [hidden]="password.valid || password.pristine">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" 
-      required
-      [(ngModel)]="model.password"
-      name="password"
-      #password="ngModel">
-      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Password is required!
-      </div>
-    </div>
+    <mat-form-field class="form-group">
+        <input matInput placeholder="First Name"
+        type="text"  id="firstName" 
+        required
+        [(ngModel)]="model.firstName"
+        name="firstName"
+         #firstName="ngModel">
+        <mat-error [hidden]="firstName.valid || firstName.pristine">
+            First Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" 
-      required
-      [(ngModel)]="model.firstName"
-      name="firstName"
-      #firstName="ngModel">
-      <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
-        First Name is required!
-      </div>
-    </div>
+   
+    <mat-form-field class="form-group">
+        <input matInput placeholder="Last Name"
+        type="text"  id="lastName" 
+        required
+        [(ngModel)]="model.lastName"
+        name="lastName"
+         #lastName="ngModel">
+        <mat-error [hidden]="lastName.valid || lastName.pristine">
+            Last Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" 
-      required
-      [(ngModel)]="model.lastName"
-      name="lastName"
-      #lastName="ngModel">
-      <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
-        Last Name is required!
-      </div>
-    </div>
-
-    <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-success">Submit</button>    
+    <button [disabled]="!registerForm.form.valid" mat-raised-button color="primary">Register</button>
   </form>
 
-  
-  <div *ngIf="registerSuccess" class="alert alert-success">
-    Successfull Registered {{registeredUser}}!
-  </div>
-
+  </mat-card>
 </div>
